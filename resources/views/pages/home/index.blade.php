@@ -19,10 +19,12 @@
                         style="height: 100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('assets/img/pubgm-carousel.jpg') }}" class="d-block w-100" alt="PUBG Mobile" style="height: 100%;">
+                    <img src="{{ url('assets/img/pubgm-carousel.jpg') }}" class="d-block w-100" alt="PUBG Mobile"
+                        style="height: 100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('assets/img/ff-carousel.jpg') }}" class="d-block w-100" alt="Free Fire" style="height: 100%;">
+                    <img src="{{ url('assets/img/ff-carousel.jpg') }}" class="d-block w-100" alt="Free Fire"
+                        style="height: 100%;">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -40,60 +42,34 @@
 
 
         <!-- Search -->
-        <div class="container-a">
-            <form action="#">
-                <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Search">
-                    <div class="search-button">
-                        <button type="submit"><i class="fa fa-search" style="color: white;"></i></button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <form action="#" class="search my-5">
+            <input class="search-input" type="search" placeholder="Search">
+            <button class="search-btn" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
+        </form>
         <!-- Search End -->
 
 
         <h1 class="title-p mt-3" id="games">GAMES</h1>
-        <!-- Tabel Top Up Games-->
-        <div class="row row-cols-3 row-cols-md-6 g-3">
-            <div class="col">
-                <div class="card h-100">
-                    <div class="link">
-                        <a href="/MLBB Topup/mlbb.html">
-                            <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
-                            <div class="card-body">
-                                <h5 class="card-title text-light text-center">Mobile Legends: Bang Bang</h5>
-                            </div>
-                        </a>
-                    </div>
+        <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-2 g-lg-3">
+            <a href="{{ route('detail') }}" class="col card h-100">
+                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
+                <div class="card-body">
+                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="link">
-                        <a href="/PUBGM Topup/pubgm.html">
-                            <img src="{{ url('assets/img/pubgm-icon.jpg') }}" class="card-img-top" alt="PUBGM Logo">
-                            <div class="card-body">
-                                <h5 class="card-title text-light text-center">PUBG Mobile</h5>
-                            </div>
-                        </a>
-                    </div>
+            </a>
+            <a class="col card h-100">
+                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
+                <div class="card-body">
+                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="link">
-                        <a href="/FF Topup/ff.html">
-                            <img src="{{ url('assets/img/ff-icon.png') }}" class="card-img-top" alt="FF Logo">
-                            <div class="card-body">
-                                <h5 class="card-title text-light text-center">Free Fire</h5>
-                            </div>
-                        </a>
-                    </div>
+            </a>
+            <a class="col card h-100">
+                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
+                <div class="card-body">
+                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
                 </div>
-            </div>
+            </a>
         </div>
-        <!-- Tabel Top-up Games End -->
     </div>
 
 

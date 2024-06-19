@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Color */
+    --body-color: #090717;
+    --primary-color:  #0d6efd;
+    --card-color: #161326;
+    --card-hover: #1b1731;
+    --src-border-color: #707070;
+    --input-box-shadow: #257cc4;
+    /* Color End */
+  
+    /* Text Color */
+    --text-color-light: #fff;
+    /* Text Color End */
+  
+    /* Transisi */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+    /* Transisi End */
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    display: contents;
+    place-items: center;
+    background-color: var(--body-color);
+    text-decoration: none;
+  }
+
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.login-form {
+    padding: 20px 10px;
+    background-color: var(--card-color);
+    border: none;
+    border-radius: 2px;
+    color: var(--text-color-light);
+}
+
+.btn-login {
+    height: 35px;
+    border-radius: 2px;
+    font-weight: 500;
+}
+
+.link {
+    text-decoration: none;
+}
+.content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--src-border-color);
+}
+.pass-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.pass-logo i {
+    color: var(--src-border-color);
+}
+.content input,
+.content input:focus-within {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: var(--text-color-light);
+    width: 100%;
+    padding-left: 0px;
+}
+.content:focus-within {
+    border-color: var(--input-box-shadow);
+}
+
+input::placeholder {
+    color: var(--src-border-color) !important;
+}

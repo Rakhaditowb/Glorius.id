@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('components.style')
+    @include('components.admin.style')
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     @yield('content')
     {{-- Content End --}}
 
-    @include('components.script')
+    @include('components.admin.script')
 
 </body>
 

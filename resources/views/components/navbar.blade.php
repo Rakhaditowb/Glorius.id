@@ -56,8 +56,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
                                 aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">My profile</a></li>
-                                <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile.index') }}">My profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider-light py-0 my-1">
                                 </li>
@@ -85,14 +84,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ $active === 'cek pesanan' ? 'active' : '' }}" href="">
-                                <i class="fa-solid fa-gamepad"></i>
+                                <i class="bx bxs-box"></i>
                                 Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ $active === 'user' ? 'active' : '' }}" aria-current="page" href="$">
-                                <i class="fa-solid fa-user"></i>
-                                Users
                             </a>
                         </li>
                         <li class="nav-item">
@@ -113,8 +106,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
                                 aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">My profile</a></li>
-                                <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile.index') }}">My profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider-light py-0 my-1">
                                 </li>

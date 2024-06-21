@@ -27,7 +27,7 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <h3 class="card-title text-light text-size d-flex flex-wrap align-items-center gap-2 py-0 mt-0 mb-4">Data</h3>
                     <label for="name" class="text-size text-opacity mb-2">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" required>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Mauskkan nama product" required>
 
                     <label for="status" class="text-size text-opacity mt-3 mb-2">Status</label>
                     <select class="form-select" name="status" id="status" aria-label="Default select example">

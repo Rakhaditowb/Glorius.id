@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Item;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -63,7 +64,7 @@ class AdminProductController extends Controller
             session()->flash('success', 'Product berhasil ditambahkan!');
 
         } else {
-            session()->flash('success', 'Product gagal ditambahkan!');
+            session()->flash('error', 'Product gagal ditambahkan!');
         }
         return redirect()->route('product.index');
     }
@@ -71,9 +72,17 @@ class AdminProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $items = $product->items()->get();
+
+        return view('pages.admin.item.index', [
+            'title' => 'Product - Item',
+            'active' => 'product',
+            'product' => $product,
+            'items' => $items
+        ]);
     }
 
     /**
@@ -121,7 +130,7 @@ class AdminProductController extends Controller
             session()->flash('success', 'Product berhasil diedit!');
 
         } else {
-            session()->flash('success', 'Product gagal diedit!');
+            session()->flash('error', 'Product gagal diedit!');
         }
         return redirect()->route('product.index');
     }
@@ -143,7 +152,7 @@ class AdminProductController extends Controller
             session()->flash('success', 'Product berhasil dihapus!');
              
         } else {
-            session()->flash('success', 'Product gagal dihapus!');
+            session()->flash('error', 'Product gagal dihapus!');
         }
         return redirect()->route('product.index');
     }

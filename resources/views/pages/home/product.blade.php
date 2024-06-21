@@ -78,26 +78,31 @@
                                 </div>
                                 <div class="card-body">
                                     <div id="tempatnominal">
-                                        <div class="row row-cols-2">
+                                        <div class="row row-cols-2 g-2">
+                                            @forelse ($items as $item)
                                             <div class="col-lg-4 mt-2 h-100">
                                                 <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-1" autocomplete="off">
-                                                    <label class="btn btn-outline-primary text-light" for="success-outlined-1">3 Diamonds</label>
+                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-{{ $item->id }}" autocomplete="off" value="{{ $item->price }}">
+                                                    <label class="btn btn-outline-primary text-light d-flex align-items-center justify-content-between" for="success-outlined-{{ $item->id }}">
+                                                        <div class="d-flex flex-column align-items-start">
+                                                            <span class="text-size">{{ $item->name }}</span>
+                                                            <span class="text-size text-opacity">Rp. {{ $item->price }}</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            @if(!empty($item->image))
+                                                                <img src="{{ asset('storage/images/'.$item->image) }}" alt="image">
+                                                            @else
+                                                                <img src="{{ asset('assets/img/logo.webp') }}" alt="image">
+                                                            @endif
+                                                        </div>
+                                                    </label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 mt-2 h-100">
-                                                <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-2" autocomplete="off">
-                                                    <label class="btn btn-outline-primary text-light" for="success-outlined-2">5 Diamonds</label>
-                                                </div>
+                                            @empty
+                                            <div class="error-message-container d-flex justify-content-center align-items-center py-5 w-100">
+                                                <h4 class="text-light text-size">Tidak ada item.</h4>
                                             </div>
-                                            <div class="col-lg-4 mt-2 h-100">
-                                                <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-3" autocomplete="off">
-                                                    <label class="btn btn-outline-primary text-light"
-                                                        for="success-outlined-3">11 Diamonds</label>
-                                                </div>
-                                            </div>
+                                            @endforelse
                                         </div>
                                     </div>
                                 </div>

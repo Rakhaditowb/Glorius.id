@@ -39,9 +39,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'cek pesanan' ? 'active' : '' }}" href="">
-                                <i class="fa-solid fa-clipboard-list"></i>
-                                Cek Pesanan
+                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="">
+                                <i class='bx bx-dollar'></i>
+                                Transaksi
                             </a>
                         </li>
                     </ul>
@@ -95,9 +95,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'cek pesanan' ? 'active' : '' }}" href="">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Orders
+                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="">
+                                <i class='bx bx-dollar'></i>
+                                Transaksi
                             </a>
                         </li>
                     </ul>

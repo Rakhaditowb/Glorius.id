@@ -7,11 +7,11 @@
 @section('content')
     <div class="container tambah-product py-3">
         <div class="title d-flex align-items-center gap-2 pb-3">
-            <a href="{{ route('admin.product.index') }}" title="Back"><i class='bx bx-arrow-back text-opacity fs-3 mt-2 mt-lg-1'></i></a>
+            <a href="{{ route('product.index') }}" title="Back"><i class='bx bx-arrow-back text-opacity fs-3 mt-2 mt-lg-1'></i></a>
             <h2 class="text-size text-opacity text-center my-0 fs-2">Edit Product</h2>
         </div>
 
-        <form action="{{ route('admin.product.update', $product->id) }}" method="POST" class="d-flex flex-column gap-2" enctype="multipart/form-data">
+        <form action="{{ route('product.update', $product->id) }}" method="POST" class="d-flex flex-column gap-2" enctype="multipart/form-data">
             @csrf @method('PUT')
 
             <div class="card bg-card pb-3">

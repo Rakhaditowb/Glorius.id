@@ -42,7 +42,7 @@ class DashboardController extends Controller
             session()->flash('success', 'User berhasil ditambahkan!');
 
         } else {
-            session()->flash('success', 'User gagal ditambahkan!');
+            session()->flash('error', 'User gagal ditambahkan!');
         }
         return redirect()->back();
     }
@@ -60,7 +60,7 @@ class DashboardController extends Controller
             session()->flash('success', 'User berhasil diedit!');
 
         } else {
-            session()->flash('success', 'User gagal diedit!');
+            session()->flash('error', 'User gagal diedit!');
         }
         return redirect()->back();
     }
@@ -74,7 +74,7 @@ class DashboardController extends Controller
             session()->flash('success', 'User berhasil dihapus!');
 
         } else {
-            session()->flash('success', 'User gagal dihapus!');
+            session()->flash('error', 'User gagal dihapus!');
         }
         return redirect()->back();
     }

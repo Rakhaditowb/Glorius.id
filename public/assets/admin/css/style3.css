@@ -249,7 +249,7 @@ input[type="number"]:focus {
 /* Table End */
 
 
-/* Product */
+/* Product and Item */
 .container.product .col .card {
   background-color: var(--card-color);
   border-radius: 10px;
@@ -274,28 +274,32 @@ input[type="number"]:focus {
   border-radius: 50px;
 }
 
-.container.product .content {
+.container.product .content,
+.container.item .content {
   border-radius: 10px;
 }
-.container.product .content .image {
+.container.product .content .image,
+.container.item .content .image {
   width: 80px;
   height: 80px;
   overflow: hidden;
   border-radius: 10px 0px 0px 10px;
   aspect-ratio: 1/1;
 } 
-.container.product .content .image img {
+.container.product .content .image img,
+.container.item .content .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 @media (max-width: 768px) {
-  .container.product .content .image {
+  .container.product .content .image,
+  .container.item .content .image {
     width: 50px;
     height: 50px;
   }
 }
-/* Product End */
+/* Product and Item End */
 
 
 
@@ -324,6 +328,19 @@ input[type="number"]:focus {
   transition: var(--tran-03);
 }
 /* Search End */
+
+/* Button */
+.tambah-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color-light);
+  gap: 5px;
+  background-color: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 50px;
+}
+/* Button End */
 
 
 .container-footer {

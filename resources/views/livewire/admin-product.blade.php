@@ -31,7 +31,7 @@
             
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink-{{ $item->id }}">
                     <li><a class="dropdown-item" href="{{ route('product.edit', $item->slug) }}">Edit Product</a></li>
-                    <li><a class="dropdown-item" href="#">Items</a></li>
+                    <li><a class="dropdown-item" href="{{ route('product.show', $item->slug) }}">Items</a></li>
                     <li><a class="dropdown-item pb-2" href="#">Payment</a></li>
                     <hr class="text-secondary py-0 my-0 w-100">
                     <form id="delete-product-form-{{ $item->id }}" action="{{ route('product.destroy', $item->id) }}" method="POST">

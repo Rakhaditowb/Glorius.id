@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminItemController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
@@ -39,4 +40,7 @@ Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function() {
 
     //// product
     Route::resource('product', AdminProductController::class);
+
+    //// item
+    Route::resource('item', AdminItemController::class);
 });

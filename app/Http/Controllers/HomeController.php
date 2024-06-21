@@ -33,11 +33,13 @@ class HomeController extends Controller
     public function details($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $items = $product->items()->get();
 
         return view('pages.home.product', [
             'title' => 'Glorius.id',
             'active' => 'home',
-            'product' => $product
+            'product' => $product,
+            'items' => $items
         ]);
     }
 }

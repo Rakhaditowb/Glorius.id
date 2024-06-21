@@ -181,9 +181,6 @@ a,
   font-size: 10px;
   color: white;
 }
-#product ol > * {
-  color: var(--text-color-opacity) !important;
-}
 #product button {
   background-color: var(--primary-color) !important;
 }
@@ -268,28 +265,6 @@ a,
   line-height: 20px;
   font-size: 14px;
   color: #fff;
-}
-
-.socials {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1rem 0 3rem 0;
-}
-
-.socials li {
-  margin: 0 10px;
-}
-
-.socials a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 200;
-}
-
-.socials a i {
-  font-size: 1.1rem;
 }
 
 .footer-bottom {

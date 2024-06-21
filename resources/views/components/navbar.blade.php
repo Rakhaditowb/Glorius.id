@@ -45,7 +45,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mx-0 me-4 ms-auto my-1" id="dropdown">
+                    <ul class="navbar-nav mx-0 ms-auto my-1" id="dropdown">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 text-light" href="#" id="navbarDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,13 +77,19 @@
                 @else
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'dashboard' ? 'active' : '' }}" aria-current="page" href="{{ route('admin.dashboard') }}">
+                            <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">
                                 <i class="fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ $active === 'dashboard' ? 'active' : '' }}" aria-current="page" href="{{ route('admin.dashboard') }}">
+                                <i class='bx bxs-dashboard'></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'cek pesanan' ? 'active' : '' }}" href="">
+                            <a class="nav-link {{ $active === 'product' ? 'active' : '' }}" href="{{ route('product.index') }}">
                                 <i class="bx bxs-box"></i>
                                 Products
                             </a>
@@ -95,7 +101,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mx-0 me-4 ms-auto my-1" id="dropdown">
+                    <ul class="navbar-nav mx-0 ms-auto my-1" id="dropdown">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center gap-2 text-light" href="#" id="navbarDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">

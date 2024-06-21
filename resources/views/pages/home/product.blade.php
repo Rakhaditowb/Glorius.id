@@ -8,27 +8,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" alt="mlbb topup"
+                                <img src="{{ asset('storage/images/'.$product->image) }}" alt="mlbb topup"
                                     class="rounded bg-dark mx-auto mb-2 d-lg-block d-none" width="150">
                                 <div class="row">
                                     <div class="col">
-                                        <h3 class="text-size text-light text-center py-0 my-0">Mobile Legends</h3>
+                                        <h3 class="text-size text-light text-center py-0 my-0">{{ $product->name }}</h3>
                                         <div class="strip-primary"></div>
                                         <br>
-                                        <span class="text-size text-color mt3 mb-3">Diamond Instant</span>
-                                        <img src="{{ url('assets/img/mlbb-icon.jpg') }}" alt="mlbb topup"
+                                        <div class="top d-flex align-items-center mb-3">
+                                            <img src="{{ asset('storage/images/'.$product->image) }}" alt="mlbb topup"
                                             class="rounded bg-dark float-start mt-2 me-2 mb-0 d-lg-none d-block"
                                             width="45">
-                                        <p class="text-size text-opacity">Top Up Diamond Mobile Legends</pc>
-                                        <ol>
-                                            <li>Masukkan <b>ID (SERVER)</b></li>
-                                            <li>Pilih <b>Nominal</b> Diamond</li>
-                                            <li>Pilih <b>Metode Pembayaran</b></li>
-                                            <li>Tulis <b>Email </b>Anda</li>
-                                            <li>Diamond masuk otomatis ke akun Anda.</li>
-                                        </ol>
+                                            <p class="text-size text-opacity py-0 my-0">Top Up {{ $product->name }}</p>
+                                        </div>
+                                        <div class="text-light">
+                                            {!! $product->description !!}
+                                        </div>
                                         <p style="text-align: center;">
-                                            <font size="3" color="success"><b>Tersedia</b></font>
+                                            <font size="3" class="{{ $product->status === 'Tersedia' ? 'text-success' : 'text-danger' }}"><b>{{ $product->status }}</b></font>
                                         </p>
                                     </div>
                                 </div>

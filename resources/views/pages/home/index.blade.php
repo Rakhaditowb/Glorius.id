@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@push('styles')
+    @livewireStyles()
+@endpush
+
 @section('content')
     <div class="container text-light">
 
@@ -40,36 +44,7 @@
         </div>
         <!-- end carousel images -->
 
-
-        <!-- Search -->
-        <form action="#" class="search my-5">
-            <input class="search-input" type="search" placeholder="Search">
-            <button class="search-btn" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
-        </form>
-        <!-- Search End -->
-
-
-        <h1 class="title-p mt-3" id="games">GAMES</h1>
-        <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-2 g-lg-3">
-            <a href="{{ route('detail') }}" class="col card h-100">
-                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
-                <div class="card-body">
-                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
-                </div>
-            </a>
-            <a class="col card h-100">
-                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
-                <div class="card-body">
-                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
-                </div>
-            </a>
-            <a class="col card h-100">
-                <img src="{{ url('assets/img/mlbb-icon.jpg') }}" class="card-img-top" alt="MLBB Logo">
-                <div class="card-body">
-                    <h6 class="text-size text-light text-center">Mobile Legends</h6>
-                </div>
-            </a>
-        </div>
+        @livewire('product-content')
     </div>
 
 
@@ -90,3 +65,7 @@
     </div>
     <!-- CS End -->
 @endsection
+
+@push('scripts')
+    @livewireScripts()
+@endpush

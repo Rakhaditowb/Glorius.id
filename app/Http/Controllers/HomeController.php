@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,11 +30,14 @@ class HomeController extends Controller
         ]);
     }
 
-    public function details()
+    public function details($slug)
     {
+        $product = Product::where('slug', $slug)->firstOrFail();
+
         return view('pages.home.product', [
             'title' => 'Glorius.id',
             'active' => 'home',
+            'product' => $product
         ]);
     }
 }

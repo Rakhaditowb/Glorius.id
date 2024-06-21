@@ -10,7 +10,7 @@
     <section class="container dashboard py-3">
         <h2 class="text-size text-opacity mb-3">Dashboard</h2>
 
-        <div class="content">
+        <div class="content pb-5">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
                 <a href="#allUser" class="col text-decoration-none">
                     <div class="card">
@@ -29,14 +29,14 @@
                     </div>
                 </a>
 
-                <a href="#" class="col text-decoration-none">
+                <a href="{{ route('product.index') }}" class="col text-decoration-none">
                     <div class="card">
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div class="info d-flex align-items-center gap-3">
-                                <i class="bx bxs-box fs-4 text-light py-0 my-0"></i>
+                                <i class="bx bxs-box fs-3 text-light py-0 my-0"></i>
                                 <div class="card-info d-flex flex-column justify-content-center gap-2">
                                     <h6 class="text-size text-opacity py-0 my-0">Total Products</h6>
-                                    <p class="text-size text-color py-0 my-0">10</p>
+                                    <p class="text-size text-color py-0 my-0">{{ $products->count() }}</p>
                                 </div>
                             </div>
                             <div class="action text-size text-light fs-4">

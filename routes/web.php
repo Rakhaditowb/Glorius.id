@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminItemController;
+use App\Http\Controllers\Admin\AdminPaymentController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
@@ -33,7 +34,7 @@ Route::resource('profile', ProfileController::class);
 Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function() {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
-    //// CRUD User
+    //// user
     Route::post('/user', [DashboardController::class, 'userStore'])->name('admin.user.store');
     Route::put('/user/{id}', [DashboardController::class, 'userUpdate'])->name('admin.user.update');
     Route::delete('/user/{id}', [DashboardController::class, 'userDestroy'])->name('admin.user.destroy');
@@ -43,4 +44,7 @@ Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function() {
 
     //// item
     Route::resource('item', AdminItemController::class);
+
+    //// payment
+    Route::resource('payment', AdminPaymentController::class);
 });

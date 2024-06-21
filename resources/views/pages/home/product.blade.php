@@ -37,6 +37,9 @@
 
             <div class="col-lg-8 mt-2 mb-2">
                 <form action="#">
+
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <!-- Lengkapi Data -->
                     <div class="row-1">
                         <div class="col">
@@ -82,7 +85,7 @@
                                             @forelse ($items as $item)
                                             <div class="col-lg-4 mt-2 h-100">
                                                 <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-{{ $item->id }}" autocomplete="off" value="{{ $item->price }}">
+                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-{{ $item->id }}" autocomplete="off" value="{{ $item->price }}" required>
                                                     <label class="btn btn-outline-primary text-light d-flex align-items-center justify-content-between" for="success-outlined-{{ $item->id }}">
                                                         <div class="d-flex flex-column align-items-start">
                                                             <span class="text-size">{{ $item->name }}</span>
@@ -119,12 +122,28 @@
                                     <h5 class="text-size text-light">Pilih Metode Pembayaran</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="area-list-payment-method">
-                                        <div class="child-box payment-drawwer">
-                                            <div class="header short-payment-support-info-head"
-                                                onclick="openPaymentDrawwer(this)">
-                                                <p class="text-size text-opacity"><b>Virtual Account</b></p>
+                                    <div id="tempatpayment">
+                                        <div class="row row-cols-2 g-2">
+                                            @forelse ($payments as $item)
+                                            <div class="col-lg-4 mt-2 h-100">
+                                                <div class="list-group">
+                                                    <input type="radio" class="btn-check" name="name" id="success-outlined-{{ $item->name }}" autocomplete="off" value="{{ $item->name }}" required>
+                                                    <label class="btn btn-outline-primary text-light d-flex align-items-center justify-content-between" for="success-outlined-{{ $item->name }}">
+                                                        <div class="d-flex flex-column align-items-start">
+                                                            <span class="text-size">{{ $item->name }}</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img src="{{ asset('storage/payments/'.$item->image) }}" alt="image">
+                                                        </div>
+                                                    </label>
+                                                </div>
                                             </div>
+
+                                            @empty
+                                            <div class="error-message-container d-flex justify-content-center align-items-center py-5 w-100">
+                                                <h4 class="text-light text-size">Tidak ada payment.</h4>
+                                            </div>
+                                            @endforelse
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +151,39 @@
                         </div>
                     </div>
                     <!-- Metode Pembayaran End -->
+    
+                    <!-- Lanjutkan Pembayaran -->
+                    <div class="row-1 mt-3">
+                        <div class="col">
+                            <div class="card bg-dark">
+                                <div class="card-header">
+                                    <h5 class="text-size text-light">Lanjutkan Pembayaran</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="tempatpayment">
+                                        <div class="row row-cols-1 g-2">
+                                            @forelse ($payments as $item)
+                                            <div class="col-lg-12 mt-2 position-relative">
+                                                <div id="qr_image_container_{{ $item->name }}" class="qr-image-container d-none">
+                                                    <img src="{{ asset('storage/payments/'.$item->qr_image) }}" class="card-img" alt="QR Code {{ $item->name }}">
+                                                </div>
+                                            </div>
+
+                                            @empty
+                                            <div class="error-message-container d-flex justify-content-center align-items-center py-5 w-100">
+                                                <h4 class="text-light text-size">Tidak ada payment.</h4>
+                                            </div>
+                                            @endforelse
+
+                                            <label for="bukti_pembayaran" class="mb-2 text-color">Bukti Pembayaran</label>
+                                            <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" accept=".jpg, .jpeg, .png, .webp" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lanjutkan Pembayaran End -->
     
                     <!-- Checkout -->
                     @guest
@@ -151,3 +203,27 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radioButtons = document.querySelectorAll('input[name="name"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    const selectedValue = this.value;
+                    // Hide all qr_image containers
+                    document.querySelectorAll('.qr-image-container').forEach(container => {
+                        container.classList.remove('d-block');
+                        container.classList.add('d-none');
+                    });
+                    // Show the selected qr_image container
+                    const selectedContainer = document.getElementById(`qr_image_container_${selectedValue}`);
+                    if (selectedContainer) {
+                        selectedContainer.classList.remove('d-none');
+                        selectedContainer.classList.add('d-block');
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

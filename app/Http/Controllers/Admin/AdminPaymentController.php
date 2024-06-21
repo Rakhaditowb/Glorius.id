@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Item;
+use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class AdminItemController extends Controller
+class AdminPaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +33,8 @@ class AdminItemController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'price' => 'required',
+            'image' => 'required',
+            'qr_image' => 'required',
         ]);
 
         $data = $request->all();
@@ -41,18 +42,26 @@ class AdminItemController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/images', $fileName);
+            $path = $file->storeAs('public/payments', $fileName);
     
             $data['image'] = $fileName;
         }
 
-        $item = Item::create($data);
+        if ($request->hasFile('qr_image')) {
+            $file = $request->file('qr_image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('public/payments', $fileName);
+    
+            $data['qr_image'] = $fileName;
+        }
 
-        if ($item) {
-            session()->flash('success', 'Item berhasil ditambahkan!');
+        $payment = Payment::create($data);
+
+        if ($payment) {
+            session()->flash('success', 'Payment berhasil ditambahkan!');
 
         } else {
-            session()->flash('error', 'Item gagal ditambahkan!');
+            session()->flash('error', 'Payment gagal ditambahkan!');
         }
         return redirect()->back();
     }
@@ -63,13 +72,13 @@ class AdminItemController extends Controller
     public function show(string $slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        $items = $product->items()->get();
+        $payments = $product->payments()->get();
 
-        return view('pages.admin.item.index', [
+        return view('pages.admin.payment.index', [
             'title' => 'Product - Item',
             'active' => 'product',
             'product' => $product,
-            'items' => $items
+            'payments' => $payments
         ]);
     }
 
@@ -86,27 +95,40 @@ class AdminItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $item = Item::find($id);
-        $item->product_id = $request->input('product_id', $item->product_id);
-        $item->name = $request->input('name', $item->name);
-        $item->price = $request->input('price', $item->price);
+        $payment = Payment::find($id);
+        $payment->product_id = $request->input('product_id', $payment->product_id);
+        $payment->name = $request->input('name', $payment->name);
+        $payment->type = $request->input('type', $payment->type);
 
         if ($request->hasFile('image')) {
             // Hapus file lama jika ada
-            if ($item->image) {
-                Storage::disk('public')->delete('images/' . $item->image);
+            if ($payment->image) {
+                Storage::disk('public')->delete('payments/' . $payment->image);
             }
 
             $file = $request->file('image');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/images', $fileName);
+            $path = $file->storeAs('public/payments', $fileName);
 
-            $item->image = $fileName;
+            $payment->image = $fileName;
         }
 
-        $item->save();
+        if ($request->hasFile('qr_image')) {
+            // Hapus file lama jika ada
+            if ($payment->qr_image) {
+                Storage::disk('public')->delete('payments/' . $payment->qr_image);
+            }
 
-        if ($item) {
+            $file = $request->file('qr_image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('public/payments', $fileName);
+
+            $payment->qr_image = $fileName;
+        }
+
+        $payment->save();
+
+        if ($payment) {
             session()->flash('success', 'Item berhasil diedit!');
 
         } else {
@@ -120,15 +142,19 @@ class AdminItemController extends Controller
      */
     public function destroy(string $id)
     {
-        $item = Item::find($id);
-        
-        if ($item->image) {
-            Storage::disk('public')->delete('images/' . $item->image);
+        $payment = Payment::find($id);
+
+        if ($payment->image) {
+            Storage::disk('public')->delete('payments/' . $payment->image);
         }
 
-        $item->delete();
+        if ($payment->qr_image) {
+            Storage::disk('public')->delete('payments/' . $payment->qr_image);
+        }
 
-        if ($item) {
+        $payment->delete();
+
+        if ($payment) {
             session()->flash('success', 'Item berhasil dihapus!');
             
         } else {

@@ -34,12 +34,14 @@ class HomeController extends Controller
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $items = $product->items()->get();
+        $payments = $product->payments()->get();
 
         return view('pages.home.product', [
             'title' => 'Glorius.id',
             'active' => 'home',
             'product' => $product,
-            'items' => $items
+            'items' => $items,
+            'payments' => $payments
         ]);
     }
 }

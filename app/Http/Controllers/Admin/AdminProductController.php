@@ -72,17 +72,9 @@ class AdminProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(string $id)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        $items = $product->items()->get();
-
-        return view('pages.admin.item.index', [
-            'title' => 'Product - Item',
-            'active' => 'product',
-            'product' => $product,
-            'items' => $items
-        ]);
+        //
     }
 
     /**

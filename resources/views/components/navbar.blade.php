@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="">
+                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="{{ route('order.index') }}">
                                 <i class='bx bx-dollar'></i>
                                 Transaksi
                             </a>
@@ -95,7 +95,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="">
+                            <a class="nav-link {{ $active === 'transaksi' ? 'active' : '' }}" href="{{ route('transaction.index') }}">
                                 <i class='bx bx-dollar'></i>
                                 Transaksi
                             </a>

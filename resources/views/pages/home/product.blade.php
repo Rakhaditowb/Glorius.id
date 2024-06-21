@@ -36,9 +36,13 @@
             </div>
 
             <div class="col-lg-8 mt-2 mb-2">
-                <form action="#">
+                <form action="{{ route('order.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    @auth
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    @endauth
+                    <input type="hidden" name="code" value="" id="code-random">
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <!-- Lengkapi Data -->
                     <div class="row-1">
@@ -50,20 +54,31 @@
                                 <div class="card-body">
                                     <div id="userData">
                                         <div class="row row-cols row-cols-md">
-                                            <div class="col-lg-6">
-                                                <div class="form-group mb-3">
-                                                    <label for="userId" class="text-size text-opacity">User ID</label>
-                                                    <input class="form-control" placeholder="Masukkan User ID" type="id"
-                                                        name="userId" id="userId" required>
+                                            @if ($product->name == 'Mobile Legends')
+                                                <div class="col-lg-6">
+                                                    <div class="form-group mb-3">
+                                                        <label for="userId" class="text-size text-opacity">User ID</label>
+                                                        <input class="form-control" placeholder="Masukkan User ID" type="text"
+                                                            name="userId" id="userId" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mb-3">
-                                                    <label for="userId" class="text-size text-opacity">Server ID</label>
-                                                    <input class="form-control" placeholder="Masukkan Server ID" type="id"
-                                                        name="serverId" id="serverId" required>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group mb-3">
+                                                        <label for="userId" class="text-size text-opacity">Server ID</label>
+                                                        <input class="form-control" placeholder="Masukkan Server ID" type="text"
+                                                            name="serverId" id="serverId" required>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                
+                                            @else
+                                                <div class="col-lg-12">
+                                                    <div class="form-group mb-3">
+                                                        <label for="userId" class="text-size text-opacity">ID</label>
+                                                        <input class="form-control" placeholder="Masukkan ID" type="text"
+                                                            name="userId" id="userId" required>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -90,6 +105,7 @@
                                                         <div class="d-flex flex-column align-items-start">
                                                             <span class="text-size">{{ $item->name }}</span>
                                                             <span class="text-size text-opacity">Rp. {{ $item->price }}</span>
+                                                            <input type="hidden" name="item" value="{{ $item->name }}">
                                                         </div>
                                                         <div class="image">
                                                             @if(!empty($item->image))
@@ -127,7 +143,7 @@
                                             @forelse ($payments as $item)
                                             <div class="col-lg-4 mt-2 h-100">
                                                 <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="name" id="success-outlined-{{ $item->name }}" autocomplete="off" value="{{ $item->name }}" required>
+                                                    <input type="radio" class="btn-check" name="payment" id="success-outlined-{{ $item->name }}" autocomplete="off" value="{{ $item->name }}" required>
                                                     <label class="btn btn-outline-primary text-light d-flex align-items-center justify-content-between" for="success-outlined-{{ $item->name }}">
                                                         <div class="d-flex flex-column align-items-start">
                                                             <span class="text-size">{{ $item->name }}</span>
@@ -175,7 +191,7 @@
                                             </div>
                                             @endforelse
 
-                                            <label for="bukti_pembayaran" class="mb-2 text-color">Bukti Pembayaran</label>
+                                            <label for="bukti_pembayaran" class="mb-2 text-opacity">Bukti Pembayaran</label>
                                             <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" accept=".jpg, .jpeg, .png, .webp" required>
                                         </div>
                                     </div>
@@ -207,7 +223,7 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const radioButtons = document.querySelectorAll('input[name="name"]');
+            const radioButtons = document.querySelectorAll('input[name="payment"]');
             radioButtons.forEach(radio => {
                 radio.addEventListener('change', function () {
                     const selectedValue = this.value;
@@ -225,5 +241,16 @@
                 });
             });
         });
+
+        document.getElementById('code-random').value = create_random_code(7);
+
+        function create_random_code(string_length) {
+            var random_string = '';
+            var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+            for (var i = 0; i < string_length; i++) {
+                random_string += char.charAt(Math.floor(Math.random() * char.length));
+            }
+            return random_string;
+        }
     </script>
 @endpush

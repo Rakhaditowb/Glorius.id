@@ -231,6 +231,169 @@ a,
 /* Profile End */
 
 
+/* Table */
+.table-responsive {
+  background-color: var(--card-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+table {
+  border: none !important;
+}
+table th {
+  background-color: transparent !important;
+  color: var(--text-color-primary) !important;
+  padding: 10px 20px !important;
+}
+table td {
+  background-color: transparent !important;
+  color: var(--text-color-light) !important;
+  border-bottom: 1px solid var(--text-color) !important;
+  padding: 10px 20px !important;
+}
+table tr:hover td,
+table tr:nth-child(odd):hover td {
+  background-color: rgba(225, 225, 225, 0.1) !important;
+  transition: var(--tran-03);
+}
+
+table tr td a i,
+table tr td form button.hapus-btn i {
+  padding: 10px;
+  border-radius: 10px;
+}
+table tr td form button.hapus-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+table tr td .actions a:hover i,
+table tr td form button.hapus-btn:hover i {
+  background-color: var(--card-hover) !important;
+  transition: var(--tran-03);
+}
+table tr td .actions a i {
+  background-color: var(--primary-color-opacity);
+  color: var(--text-color-primary);
+}
+table tr td button.hapus-btn i {
+  background-color: #dc35461c;
+}
+table tbody tr:nth-child(odd) td {
+  background-color: var(--card-hover) !important;
+}
+
+table tbody tr td .username .username-info,
+table tbody tr td .roles-info,
+table tbody tr td .email-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+}
+table tbody tr td .actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+table tbody tr td .roles-info,
+table tbody tr td .email-info,
+table tbody tr td .actions {
+  height: 30px;
+}
+table tbody tr td .avatar {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+table tbody tr td .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dataTables_length,
+.dataTables_filter {
+  padding: 10px 0px 10px 0px;
+}
+
+@media (min-width: 768px) {
+  #myDataTable_filter {
+    display: flex;
+    justify-content: end;
+  }
+}
+@media (max-width: 768px) {
+  #myDataTable_filter,
+  #myDataTable_length {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.dataTables_length select,
+.dataTables_filter select,
+.dataTables_info select,
+.dataTables_paginate select {
+  background-color: var(--card-color) !important;
+  border: 1px solid var(--text-color) !important;
+  border-radius: 20px;
+  color: var(--text-color-light);
+  box-shadow: none !important;
+}
+.dataTables_length select  {
+  padding-left: 15px;
+  padding-right: 20px;
+}
+.table-responsive input[type="search"] {
+  background-color: transparent !important;
+  border: 1px solid var(--text-color) !important;
+  border-radius: 20px;
+  color: var(--text-color-light) !important;
+  padding-left: 15px;
+  box-shadow: none !important;
+}
+input[type="search"]::placeholder,
+input[type="number"]::placeholder {
+  color: var(--text-color);
+}
+
+input[type="search"]:focus,
+input[type="number"]:focus {
+  border-color: var(--primary-color);
+}
+.dataTables_info,
+.pagination {
+  margin-top: 20px !important;
+}
+@media (max-width: 768px) {
+  .dataTables_info,
+  .pagination {
+    margin-top: 5px !important;
+  }
+}
+
+.pagination .paginate_button > a {
+  background-color: transparent !important;
+  border: 1px solid var(--text-color) !important;
+  color: var(--text-color-light) !important;
+}
+.pagination .paginate_button.previous > a {
+  border-radius: 20px 0px 0px 20px;
+}
+.pagination .paginate_button.next > a {
+  border-radius: 0px 20px 20px 0px;
+}
+.pagination .paginate_button.active > a {
+  background-color: var(--primary-color) !important; 
+  color: white !important;
+}
+/* Table End */
+
+
 .container-footer {
   margin: 0;
 }

@@ -2,7 +2,7 @@
     <div class="actions mt-5 mb-4">
         <div class="search-box">
             <i class='bx bx-search'></i>
-            <input class="ms-0 ps-2" type="search" id="search-product" placeholder="Search product..." autocomplete="off"  wire:model.live="search">
+            <input class="ms-0 ps-2" type="search" id="search-product" placeholder="Search product..." autocomplete="off"  wire:model.live="search" style="outline: none !important; border: none;">
         </div>
         <a href="{{ route('product.create') }}" class="tambah-product">
             <i class='bx bx-plus fs-5'></i>

@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\AdminItemController;
 use App\Http\Controllers\Admin\AdminPaymentController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminTransactionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\AdminProduct;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +31,9 @@ Route::get('/detail/{slug}', [HomeController::class, 'details'])->name('detail')
 // Akun
 Route::resource('profile', ProfileController::class);
 
+// Order
+Route::resource('order', OrderController::class);
+
 
 // Admin
 Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function() {
@@ -47,4 +52,7 @@ Route::prefix('admin')->middleware(['auth', 'IsAdmin'])->group(function() {
 
     //// payment
     Route::resource('payment', AdminPaymentController::class);
+
+    //// Order
+    Route::resource('transaction', AdminTransactionController::class);
 });

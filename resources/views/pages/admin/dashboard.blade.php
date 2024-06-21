@@ -46,14 +46,14 @@
                     </div>
                 </a>
 
-                <a href="#" class="col text-decoration-none">
+                <a href="{{ route('transaction.index') }}" class="col text-decoration-none">
                     <div class="card">
                         <div class="card-body d-flex align-items-center justify-content-between">
                             <div class="info d-flex align-items-center gap-3">
                                 <i class="fa-solid fa-cart-shopping fs-4 text-light py-0 my-0"></i>
                                 <div class="card-info d-flex flex-column justify-content-center gap-2">
                                     <h6 class="text-size text-opacity py-0 my-0">Total Orders</h6>
-                                    <p class="text-size text-color py-0 my-0">120</p>
+                                    <p class="text-size text-color py-0 my-0">{{ $orders->count() }}</p>
                                 </div>
                             </div>
                             <div class="action text-size text-light fs-4">

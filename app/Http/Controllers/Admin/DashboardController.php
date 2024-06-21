@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,12 +15,14 @@ class DashboardController extends Controller
     {
         $users = User::all();
         $products = Product::all();
+        $orders = Order::all();
 
         return view('pages.admin.dashboard', [
             'title' => 'Dashboard',
             'active' => 'dashboard',
             'users' => $users,
-            'products' => $products
+            'products' => $products,
+            'orders' => $orders
         ]);
     }
 

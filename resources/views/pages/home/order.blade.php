@@ -22,6 +22,7 @@
                         <th>Price</th>
                         <th>Payment</th>
                         <th>Status</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,14 +47,14 @@
                             </td>
                             <td>
                                 <div class="item">
-                                    <h6 class="text-size fw-normal py-0 my-0 d-flex align-items-center gap-1">
+                                    <h6 class="text-size fw-normal py-0 my-0 d-flex align-items-center gap-1" style="width: max-content;">
                                         {{ $order->item }}
                                     </h6>
                                 </div>
                             </td>
                             <td>
                                 <div class="price">
-                                    <h6 class="text-light text-size fw-normal py-0 my-0">Rp. {{ $order->price }}</h6>
+                                    <h6 class="text-light text-size fw-normal py-0 my-0" style="width: max-content;">Rp. {{ $order->price }}</h6>
                                 </div>
                             </td>
                             <td>
@@ -64,6 +65,11 @@
                             <td>
                                 <div class="status">
                                     <h6 class="text-light text-size fw-normal py-0 my-0">{{ $order->status }}</h6>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="date">
+                                    <h6 class="text-light text-size fw-normal py-0 my-0" style="width: max-content;">{{ $order->created_at->diffForHumans() }}</h6>
                                 </div>
                             </td>
                         </tr>

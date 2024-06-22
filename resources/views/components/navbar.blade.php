@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark text-light sticky-top">
     <div class="container">
         @guest()
-        <a class="navbar-brand fs-4 fw-semibold" href="{{ route('guest.index') }}">
-            Glorius.<span class="text-primary">id</span>
+        <a class="navbar-brand" href="{{ route('guest.index') }}">
+            <img src="{{ url('assets/img/glorius.id.svg') }}" width="100" height="94">
         </a>
         @else
         <a class="navbar-brand fs-4 fw-semibold" href="{{ route('home') }}">
-            Glorius.<span class="text-primary">id</span>
+            <img src="{{ url('assets/img/glorius.id.svg') }}" width="100" height="94">
         </a>
         @endguest
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

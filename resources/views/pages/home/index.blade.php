@@ -16,18 +16,24 @@
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ url('assets/img/mlbb-carousel.png') }}" class="d-block w-100" alt="mobile legends image"
+                    <img src="{{ url('assets/img/mlbb-carousel.jpg') }}" class="d-block w-100" alt="Mobile Legends"
                         style="height: 100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('assets/img/pubgm-carousel.jpg') }}" class="d-block w-100" alt="PUBG Mobile"
+                    <img src="{{ url('assets/img/valorant-carousel.jpeg') }}" class="d-block w-100" alt="Valorant"
                         style="height: 100%;">
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ url('assets/img/ff-carousel.jpg') }}" class="d-block w-100" alt="Free Fire"
+                    <img src="{{ url('assets/img/hsr-carousel.png') }}" class="d-block w-100" alt="Honkai: Star rail"
+                        style="height: 100%;">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url('assets/img/ww-carousel.jpeg') }}" class="d-block w-100" alt="Wuthering Waves"
                         style="height: 100%;">
                 </div>
             </div>
@@ -58,11 +64,19 @@
     <!-- Scroll End -->
 
     <!-- CS -->
+<<<<<<< HEAD
     <div class="cs">
         <a class="icon-cs" href="#" target="_blank">
             <i class="fa fa-headset fa-2x"></i>
         </a>
     </div>
+=======
+    {{-- <div class="cs">
+        <a class="icon-cs" href="#" target="_blank">
+            <i class="fa fa-headset fa-2x"></i>
+        </a>
+    </div> --}}
+>>>>>>> c045a14 (Update: Edit Something)
     <!-- CS End -->
 @endsection
 

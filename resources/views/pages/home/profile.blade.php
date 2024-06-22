@@ -84,7 +84,7 @@
                                 <label for="edit-username" class="text-opacity">Username</label>
                                 <p class="text-size text-danger fw-bolder py-0 my-0" id="edit-profile-error-message-username"></p>
                             </div>
-                            <input type="text" class="form-control" name="name" id="edit-username" placeholder="Namanya jangan sara yaa" value="{{ Auth::user()->name }}" autocomplete="off" required>
+                            <input type="text" class="form-control" name="name" id="edit-username" placeholder="Isi nama anda disini!" value="{{ Auth::user()->name }}" autocomplete="off" required>
                         </div>
 
                         <div class="modal-footer border-0">

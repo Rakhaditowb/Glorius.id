@@ -16,7 +16,7 @@ class Order extends Model
         'userId',
         'serverId',
         'price',
-        'item',
+        'item_id',
         'payment',
         'status',
         'bukti_pembayaran',
@@ -30,5 +30,9 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function item() {
+        return $this->belongsTo(Item::class);
     }
 }

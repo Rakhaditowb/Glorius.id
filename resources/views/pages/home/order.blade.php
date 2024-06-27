@@ -48,7 +48,7 @@
                             <td>
                                 <div class="item">
                                     <h6 class="text-size fw-normal py-0 my-0 d-flex align-items-center gap-1" style="width: max-content;">
-                                        {{ $order->item }}
+                                        {{ $order->item->name }}
                                     </h6>
                                 </div>
                             </td>

@@ -73,7 +73,7 @@
                                             @else
                                                 <div class="col-lg-12">
                                                     <div class="form-group mb-3">
-                                                        <label for="userId" class="text-size text-opacity">ID</label>
+                                                        <label for="userId" class="text-size text-opacity">UID</label>
                                                         <input class="form-control" placeholder="Masukkan ID" type="text"
                                                             name="userId" id="userId" required>
                                                     </div>
@@ -100,12 +100,11 @@
                                             @forelse ($items as $item)
                                             <div class="col-lg-4 mt-2 h-100">
                                                 <div class="list-group">
-                                                    <input type="radio" class="btn-check" name="price" id="success-outlined-{{ $item->id }}" autocomplete="off" value="{{ $item->price }}" required>
+                                                    <input type="radio" class="btn-check" name="item" id="success-outlined-{{ $item->id }}" autocomplete="off" value="{{ $item->id }}" required>
                                                     <label class="btn btn-outline-primary text-light d-flex align-items-center justify-content-between" for="success-outlined-{{ $item->id }}">
-                                                        <div class="d-flex flex-column align-items-start">
+                                                        <div class="d-flex flex-column align-items-start ">
                                                             <span class="text-size">{{ $item->name }}</span>
                                                             <span class="text-size text-opacity">Rp. {{ $item->price }}</span>
-                                                            <input type="hidden" name="item" value="{{ $item->name }}">
                                                         </div>
                                                         <div class="image">
                                                             @if(!empty($item->image))

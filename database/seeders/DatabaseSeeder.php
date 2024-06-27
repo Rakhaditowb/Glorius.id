@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Item;
+use App\Models\Payment;
+use App\Models\Product;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -27,5 +30,18 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('user1234'),
             'roles' => 'user'
         ]);
+
+        User::factory(10)->create();
+
+        $this->call([
+            MobileLegendsSeeder::class,
+            HonkaiStarSeeder::class,
+            HonorOfKingsSeeder::class,
+            ValorantSeeder::class,
+            WutheringWavesSeeder::class,
+            GenshinImpactSeeder::class,
+            ClashRoyaleSeeder::class,
+        ]);
+        
     }
 }

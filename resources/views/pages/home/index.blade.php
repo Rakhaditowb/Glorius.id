@@ -62,22 +62,6 @@
         <a class="icon-scroll" href="#"><i class="fa fa-chevron-up fa-2x"></i></a>
     </div>
     <!-- Scroll End -->
-
-    <!-- CS -->
-<<<<<<< HEAD
-    <div class="cs">
-        <a class="icon-cs" href="#" target="_blank">
-            <i class="fa fa-headset fa-2x"></i>
-        </a>
-    </div>
-=======
-    {{-- <div class="cs">
-        <a class="icon-cs" href="#" target="_blank">
-            <i class="fa fa-headset fa-2x"></i>
-        </a>
-    </div> --}}
->>>>>>> c045a14 (Update: Edit Something)
-    <!-- CS End -->
 @endsection
 
 @push('scripts')

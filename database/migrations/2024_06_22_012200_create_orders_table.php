@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Item;
+use App\Models\Order;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +21,7 @@ return new class extends Migration
             $table->string('userId');
             $table->string('serverId')->nullable();
             $table->integer('price');
-            $table->string('item');
+            $table->foreignIdFor(Item::class);
             $table->string('payment');
             $table->enum('status', ['pending', 'success'])->default('pending');
             $table->string('bukti_pembayaran');

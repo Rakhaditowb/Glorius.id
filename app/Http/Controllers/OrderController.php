@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,8 +28,6 @@ class OrderController extends Controller
     {
         $request->validate([
             'userId' => 'required|string',
-            'price' => 'required|numeric',
-            'item' => 'required|string',
             'payment' => 'required|string',
             'bukti_pembayaran' => 'required|file|mimes:jpg,jpeg,png,webp',
         ]);
@@ -43,7 +42,17 @@ class OrderController extends Controller
             $data['bukti_pembayaran'] = $fileName;
         }
     
-        $order = Order::create($data);
+        $order = Order::create([
+            'user_id' => $data['user_id'],
+            'code' => $data['code'],
+            'product_id' => $data['product_id'],
+            'userId' => $data['userId'],
+            'serverId' => $data['serverId'] ?? null,
+            'price' => Item::find($request->item)->price,
+            'item_id' => Item::find($request->item)->id,
+            'payment' => $data['payment'],
+            'bukti_pembayaran' => $data['bukti_pembayaran'],
+        ]);
     
         if ($order) {
             session()->flash('success', 'Transaksi berhasil!');

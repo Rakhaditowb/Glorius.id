@@ -13,9 +13,9 @@
   </svg>
       <div class="footer-content text-center text-light">
           <h5 class="text-size">Kelompok 11</h5>
+          <p class="text-size">Raihan Havian L0122132</p>
           <p class="text-size">Rakhadito Wahyu Bassam L0122134</p>
-          <p class="text-size">Rakhadito Wahyu Bassam L0122134</p>
-          <p class="text-size">Rakhadito Wahyu Bassam L0122134</p>
+          <p class="text-size">Yahya Abdurrahman L0122153</p>
       </div>
       <div class="footer-bottom">
           <p class="text-size">copyright &copy;2024 Glorius.id</p>
